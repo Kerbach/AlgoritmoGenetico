@@ -5,7 +5,7 @@ public class JogoForca {
     public static void main(String[] args) {
 
         //Define a solução
-        Algoritimo.setSolucao("Olá Mundo");
+        Algoritimo.setSolucao("Filho da puta");
         //Define os caracteres existentes
         Algoritimo.setCaracteres("!,.:;?áÁãÃâÂõÕôÔóÓéêÉÊíQWERTYUIOPASDFGHJKLÇZXCVBNMqwertyuiopasdfghjklçzxcvbnm1234567890 ");
         //taxa de crossover de 60%
