@@ -157,6 +157,8 @@ public class Tela extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarActionPerformed
+        jTextAreaLogs.setText("");
+
         //Define a solução
         Algoritimo.setSolucao(jPalavra.getText());
         //Define os caracteres existentes
