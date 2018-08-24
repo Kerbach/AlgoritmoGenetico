@@ -31,7 +31,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jButtonParar" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabelTamanhoPopulacao" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelUtilizaElitismo" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -39,22 +39,26 @@
                           <Component id="jLabelTaxaMutacao" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelTaxaCruzamento" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelPalavra" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelModoDebug" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jPalavra" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
-                          <Component id="jTaxaCruzamento" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
-                          <Component id="jTaxaMutacao" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
-                          <Component id="jNumeroMaximoGeracoes" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
-                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                              <Component id="jRadioButtonUtilizaElitismo" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTamanhoPopulacao" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
+                          <Component id="jRadioButtonModoDebug" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jPalavra" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
+                              <Component id="jTaxaCruzamento" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
+                              <Component id="jTaxaMutacao" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
+                              <Component id="jNumeroMaximoGeracoes" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
+                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                  <Component id="jRadioButtonUtilizaElitismo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTamanhoPopulacao" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="410" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="603" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -94,7 +98,12 @@
                           <Component id="jLabelNumeroMaximoGeracoes" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jNumeroMaximoGeracoes" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="269" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelModoDebug" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jRadioButtonModoDebug" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="313" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jButtonIniciar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButtonParar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -109,6 +118,9 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JTextField" name="jPalavra">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Teste Palavra"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonIniciar">
       <Properties>
@@ -120,7 +132,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelTaxaCruzamento">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Taxa de Cruzamento:"/>
+        <Property name="text" type="java.lang.String" value="Taxa de Cruzamento (%):"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonParar">
@@ -130,7 +142,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelTaxaMutacao">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Taxa de Muta&#xe7;&#xe3;o:"/>
+        <Property name="text" type="java.lang.String" value="Taxa de Muta&#xe7;&#xe3;o (%):"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelUtilizaElitismo">
@@ -150,13 +162,16 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTaxaCruzamento">
       <Properties>
-        <Property name="text" type="java.lang.String" value="0.6"/>
+        <Property name="text" type="java.lang.String" value="60"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTaxaMutacao">
       <Properties>
-        <Property name="text" type="java.lang.String" value="0.3"/>
+        <Property name="text" type="java.lang.String" value="30"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTaxaMutacaoActionPerformed"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
@@ -191,6 +206,16 @@
     <Component class="javax.swing.JRadioButton" name="jRadioButtonUtilizaElitismo">
       <Properties>
         <Property name="selected" type="boolean" value="true"/>
+        <Property name="text" type="java.lang.String" value="Sim"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelModoDebug">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Modo debug:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="jRadioButtonModoDebug">
+      <Properties>
         <Property name="text" type="java.lang.String" value="Sim"/>
       </Properties>
     </Component>

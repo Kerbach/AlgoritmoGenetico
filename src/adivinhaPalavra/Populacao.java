@@ -1,4 +1,4 @@
-package forca;
+package adivinhaPalavra;
 
 public class Populacao {
 

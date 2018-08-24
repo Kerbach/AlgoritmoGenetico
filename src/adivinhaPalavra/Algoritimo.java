@@ -1,4 +1,4 @@
-package forca;
+package adivinhaPalavra;
 
 import java.util.Random;
 
@@ -27,7 +27,7 @@ public class Algoritimo {
             Individuo[] filhos = new Individuo[2];
 
             //verifica a taxa de crossover, se sim realiza o crossover, se não, mantém os pais selecionados para a próxima geração
-            if (r.nextDouble() <= taxaDeCrossover) {
+            if (r.nextDouble() * 100 <= taxaDeCrossover) {
                 filhos = crossover(pais[1], pais[0]);
             } else {
                 filhos[0] = new Individuo(pais[0].getGenes());

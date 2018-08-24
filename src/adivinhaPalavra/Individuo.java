@@ -1,4 +1,4 @@
-package forca;
+package adivinhaPalavra;
 
 import java.util.Random;
 
@@ -27,7 +27,7 @@ public class Individuo {
         
         Random r = new Random();
         //se for mutar, cria um gene aleatório
-        if (r.nextDouble() <= Algoritimo.getTaxaDeMutacao()) {
+        if (r.nextDouble() * 100 <= Algoritimo.getTaxaDeMutacao()) {
             String caracteres = Algoritimo.getCaracteres();
             String geneNovo="";
             int posAleatoria = r.nextInt(genes.length());
