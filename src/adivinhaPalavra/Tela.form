@@ -30,6 +30,8 @@
                       <Component id="jButtonIniciar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jButtonParar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jButtonLimparMedia" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -44,18 +46,22 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jRadioButtonModoDebug" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jPalavra" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
-                              <Component id="jTaxaCruzamento" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
-                              <Component id="jTaxaMutacao" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
-                              <Component id="jNumeroMaximoGeracoes" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
-                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                  <Component id="jRadioButtonUtilizaElitismo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTamanhoPopulacao" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                              <Component id="jMedia" min="-2" pref="137" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jPalavra" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
+                                  <Component id="jTaxaCruzamento" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
+                                  <Component id="jTaxaMutacao" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
+                                  <Component id="jNumeroMaximoGeracoes" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                      <Component id="jRadioButtonUtilizaElitismo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTamanhoPopulacao" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
+                  <Component id="jLabelModoDebug1" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane1" pref="603" max="32767" attributes="0"/>
@@ -103,10 +109,16 @@
                           <Component id="jLabelModoDebug" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jRadioButtonModoDebug" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="313" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelModoDebug1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jMedia" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="286" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jButtonIniciar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButtonParar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonLimparMedia" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
@@ -218,6 +230,27 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Sim"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelModoDebug1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="M&#xe9;dia:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jMedia">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMediaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonLimparMedia">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Limpar M&#xe9;dia"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonLimparMediaActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

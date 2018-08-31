@@ -5,19 +5,23 @@
  */
 package adivinhaPalavra;
 
-import javax.swing.JPanel;
+import java.util.ArrayList;
 
 /**
  *
  * @author wrkerber
  */
-public class Tela extends javax.swing.JFrame 
+public class Tela extends javax.swing.JFrame
 {
+    public static ArrayList<Double> media;
+    double mediaTotal = 0;
 
     /**
      * Creates new form TelaPrincipal
      */
-    public Tela() {
+    public Tela()
+    {
+        this.media = new ArrayList<Double>();
         initComponents();
     }
 
@@ -48,6 +52,9 @@ public class Tela extends javax.swing.JFrame
         jRadioButtonUtilizaElitismo = new javax.swing.JRadioButton();
         jLabelModoDebug = new javax.swing.JLabel();
         jRadioButtonModoDebug = new javax.swing.JRadioButton();
+        jLabelModoDebug1 = new javax.swing.JLabel();
+        jMedia = new javax.swing.JTextField();
+        jButtonLimparMedia = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -98,6 +105,22 @@ public class Tela extends javax.swing.JFrame
 
         jRadioButtonModoDebug.setText("Sim");
 
+        jLabelModoDebug1.setText("Média:");
+
+        jMedia.setEditable(false);
+        jMedia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMediaActionPerformed(evt);
+            }
+        });
+
+        jButtonLimparMedia.setText("Limpar Média");
+        jButtonLimparMedia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLimparMediaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -108,7 +131,9 @@ public class Tela extends javax.swing.JFrame
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButtonIniciar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonParar))
+                        .addComponent(jButtonParar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonLimparMedia))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelTamanhoPopulacao)
@@ -121,14 +146,17 @@ public class Tela extends javax.swing.JFrame
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jRadioButtonModoDebug)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jPalavra, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTaxaCruzamento, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTaxaMutacao, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jNumeroMaximoGeracoes, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButtonUtilizaElitismo)
-                                    .addComponent(jTamanhoPopulacao, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jMedia, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jPalavra, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTaxaCruzamento, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTaxaMutacao, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jNumeroMaximoGeracoes, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jRadioButtonUtilizaElitismo)
+                                        .addComponent(jTamanhoPopulacao, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addComponent(jLabelModoDebug1))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
                 .addContainerGap())
@@ -166,10 +194,15 @@ public class Tela extends javax.swing.JFrame
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelModoDebug)
                             .addComponent(jRadioButtonModoDebug))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 313, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelModoDebug1)
+                            .addComponent(jMedia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 286, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButtonIniciar)
-                            .addComponent(jButtonParar)))
+                            .addComponent(jButtonParar)
+                            .addComponent(jButtonLimparMedia)))
                     .addComponent(jScrollPane1))
                 .addContainerGap())
         );
@@ -195,14 +228,14 @@ public class Tela extends javax.swing.JFrame
         int tamPop = Integer.parseInt(jTamanhoPopulacao.getText());
         //numero máximo de gerações
         int numMaxGeracoes = Integer.parseInt(jNumeroMaximoGeracoes.getText());
-        
+
         boolean modeDebug = jRadioButtonModoDebug.isSelected();
 
         //define o número de genes do indivíduo baseado na solução
         int numGenes = Algoritimo.getSolucao().length();
         if (modeDebug)
         {
-            jTextAreaLogs.append("1 - Define o número de genes do indivíduo. Neste caso o número de caracteres: "+Algoritimo.getSolucao().length()+"\n");
+            jTextAreaLogs.append("1 - Define o número de genes do indivíduo. Neste caso o número de caracteres: " + Algoritimo.getSolucao().length() + "\n");
         }
 
         //cria a primeira população aleatérioa
@@ -213,27 +246,27 @@ public class Tela extends javax.swing.JFrame
         Populacao populacao = new Populacao(numGenes, tamPop);
         if (modeDebug)
         {
-            jTextAreaLogs.append("3 - Foi criado uma população de "+tamPop+" indivíduos conforme configurado. Segue exemplos de indivíduos \n");
+            jTextAreaLogs.append("3 - Foi criado uma população de " + tamPop + " indivíduos conforme configurado. Segue exemplos de indivíduos \n");
             int j = tamPop / 10;
-            for (int i = 0; i < j; i++) 
+            for (int i = 0; i < j; i++)
             {
-                jTextAreaLogs.append("    "+populacao.getIndivduo(i).getGenes()+" \n");
+                jTextAreaLogs.append("    " + populacao.getIndivduo(i).getGenes() + " \n");
             }
         }
         boolean temSolucao = false;
-        int geracao = 0;
-        
-        jTextAreaLogs.append("Iniciando... Aptidão da solução: "+Algoritimo.getSolucao().length()+"\n");
+        double geracao = 0;
+
+        jTextAreaLogs.append("Iniciando... Aptidão da solução: " + Algoritimo.getSolucao().length() + "\n");
         //System.out.println("Iniciando... Aptidão da solução: "+Algoritimo.getSolucao().length());
-        
+
         //loop até o critério de parada
         if (modeDebug)
         {
-            jTextAreaLogs.append("4 - Neste momento entra em um loop, onde só vai sair quando chegar no resultado ou atingir o número máximo de gerações que é "+numMaxGeracoes+" \n");
+            jTextAreaLogs.append("4 - Neste momento entra em um loop, onde só vai sair quando chegar no resultado ou atingir o número máximo de gerações que é " + numMaxGeracoes + " \n");
             contModoDebug = 0;
         }
-        while (!temSolucao && geracao < numMaxGeracoes) 
-        {    
+        while (!temSolucao && geracao < numMaxGeracoes)
+        {
             geracao++;
 
             //cria nova populacao
@@ -242,30 +275,41 @@ public class Tela extends javax.swing.JFrame
             {
                 jTextAreaLogs.append("5 - Cria uma nova população. Exemplos: \n");
                 int j = tamPop / 10;
-                for (int i = 0; i < j; i++) 
+                for (int i = 0; i < j; i++)
                 {
-                    jTextAreaLogs.append("    "+populacao.getIndivduo(i).getGenes()+" \n");
+                    jTextAreaLogs.append("    " + populacao.getIndivduo(i).getGenes() + " \n");
                 }
             }
 
-            jTextAreaLogs.append("Geração " + geracao + " | Aptidão: " + populacao.getIndivduo(0).getAptidao() + " | Melhor: " + populacao.getIndivduo(0).getGenes()+"\n");
+            jTextAreaLogs.append("Geração " + geracao + " | Aptidão: " + populacao.getIndivduo(0).getAptidao() + " | Melhor: " + populacao.getIndivduo(0).getGenes() + "\n");
             //System.out.println("Geração " + geracao + " | Aptidão: " + populacao.getIndivduo(0).getAptidao() + " | Melhor: " + populacao.getIndivduo(0).getGenes());
-            
+
             //verifica se tem a solucao
             if (modeDebug)
             {
                 jTextAreaLogs.append("6 - Verifica se tem a solução, fazendo um for, comparando se a string (usnado equals) da solução é igual a string do indivíduo. \n");
             }
-            
+
             temSolucao = populacao.temSolocao(Algoritimo.getSolucao());
         }
 
-        if (geracao == numMaxGeracoes) {
-            jTextAreaLogs.append("Número Maximo de Gerações | " + populacao.getIndivduo(0).getGenes() + " " + populacao.getIndivduo(0).getAptidao()+"\n");
+        if (geracao == numMaxGeracoes)
+        {
+            jTextAreaLogs.append("Número Maximo de Gerações | " + populacao.getIndivduo(0).getGenes() + " " + populacao.getIndivduo(0).getAptidao() + "\n");
         }
 
-        if (temSolucao) {
+        if (temSolucao)
+        {
             jTextAreaLogs.append("Encontrado resultado na geração " + geracao + " | " + populacao.getIndivduo(0).getGenes() + " (Aptidão: " + populacao.getIndivduo(0).getAptidao() + ") \n");
+            media.add(geracao);
+            mediaTotal = 0;
+            for (int i = 0; i < media.size(); i++)
+            {
+                mediaTotal += (double) media.get(i);
+            }
+            mediaTotal = mediaTotal / media.size();
+
+            jMedia.setText(Double.toString(mediaTotal));
         }
     }//GEN-LAST:event_jButtonIniciarActionPerformed
 
@@ -273,55 +317,81 @@ public class Tela extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_jTaxaMutacaoActionPerformed
 
+    private void jMediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMediaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMediaActionPerformed
+
+    private void jButtonLimparMediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparMediaActionPerformed
+        mediaTotal = 0;
+        media.clear();
+        jMedia.setText("");
+
+    }//GEN-LAST:event_jButtonLimparMediaActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+        try
+        {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+            {
+                if ("Nimbus".equals(info.getName()))
+                {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        }
+        catch (ClassNotFoundException ex)
+        {
             java.util.logging.Logger.getLogger(Tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
+        }
+        catch (InstantiationException ex)
+        {
             java.util.logging.Logger.getLogger(Tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
+        }
+        catch (IllegalAccessException ex)
+        {
             java.util.logging.Logger.getLogger(Tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        }
+        catch (javax.swing.UnsupportedLookAndFeelException ex)
+        {
             java.util.logging.Logger.getLogger(Tela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(new Runnable()
+        {
+            public void run()
+            {
                 new Tela().setVisible(true);
             }
         });
     }
-    
-    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonIniciar;
+    private javax.swing.JButton jButtonLimparMedia;
     private javax.swing.JButton jButtonParar;
     private javax.swing.JLabel jLabelModoDebug;
+    private javax.swing.JLabel jLabelModoDebug1;
     private javax.swing.JLabel jLabelNumeroMaximoGeracoes;
     private javax.swing.JLabel jLabelPalavra;
     private javax.swing.JLabel jLabelTamanhoPopulacao;
     private javax.swing.JLabel jLabelTaxaCruzamento;
     private javax.swing.JLabel jLabelTaxaMutacao;
     private javax.swing.JLabel jLabelUtilizaElitismo;
+    private javax.swing.JTextField jMedia;
     private javax.swing.JTextField jNumeroMaximoGeracoes;
     private javax.swing.JTextField jPalavra;
     private javax.swing.JRadioButton jRadioButtonModoDebug;
